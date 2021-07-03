@@ -20,4 +20,7 @@ mongoose.connect('mongodb+srv://foufa:foufa123123@foufatest.jwo76.mongodb.net/fo
 });
 
 //LISTENING TO THE SERVER
-app.listen(1000);
+const server = require('http').createServer();
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => console.log(`Listening on ${port}`));
