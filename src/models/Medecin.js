@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const MedecinSchema = mongoose.Schema({
     id: {
-        type: Int32Array,
+        type: Number,
         required: true,
     },
     nom: {
@@ -17,15 +17,15 @@ const MedecinSchema = mongoose.Schema({
         required: true
     },
     idSpecialite: {
-        type: Int32Array,
+        type: Number,
         required: true
     },
     latitude: {
-        type: Float32Array,
+        type: Number,
         required: true
     },
     longitude: {
-        type: Float32Array,
+        type: Number,
         required: true
     },
     photo: {

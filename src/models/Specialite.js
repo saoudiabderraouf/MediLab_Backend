@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const SpecialiteSchema = mongoose.Schema({
     id: {
-        type: Int32Array,
+        type: Number,
         required: true,
     },
     nom: {
