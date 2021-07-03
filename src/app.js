@@ -6,13 +6,13 @@ const cors = require('cors');
 require('dotenv/config');
 
 //IMPORT ROUTES
-const specialiteRoute = require('./routes/specialite');
+const medecinRoute = require('./routes/medecin');
 
 //MIDDLEWARES
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/specialite', specialiteRoute);
+app.use('/medecin', medecinRoute);
 
 //CONNECTION
 mongoose.connect('mongodb+srv://foufa:foufa123123@foufatest.jwo76.mongodb.net/foufaTest?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
@@ -20,7 +20,4 @@ mongoose.connect('mongodb+srv://foufa:foufa123123@foufatest.jwo76.mongodb.net/fo
 });
 
 //LISTENING TO THE SERVER
-const server = require('http').createServer();
-const port = process.env.PORT || 3000;
-
-server.listen(port, () => console.log(`Listening on ${port}`));
+app.listen(8000);

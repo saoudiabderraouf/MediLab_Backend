@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const MedecinSchema = mongoose.Schema({
     id: {
         type: Number,
-        required: true,
+        required: true
     },
     nom: {
         type: String,
@@ -13,11 +13,11 @@ const MedecinSchema = mongoose.Schema({
         required: true
     },
     telephone: {
-        type: String,
+        type: Number,
         required: true
     },
-    idSpecialite: {
-        type: Number,
+    specialite: {
+        type: String,
         required: true
     },
     latitude: {
@@ -29,10 +29,6 @@ const MedecinSchema = mongoose.Schema({
         required: true
     },
     photo: {
-        type: String,
-        required: true
-    },
-    motDePasse: {
         type: String,
         required: true
     }
