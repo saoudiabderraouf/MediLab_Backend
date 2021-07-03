@@ -31,6 +31,10 @@ const MedecinSchema = mongoose.Schema({
     photo: {
         type: String,
         required: true
+    },
+    motDePasse: {
+        type: String,
+        required: true
     }
 });
 

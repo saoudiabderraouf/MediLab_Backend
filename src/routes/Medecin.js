@@ -32,7 +32,8 @@ router.post('/', async(req, res) => {
         specialite: req.body.specialite,
         latitude: req.body.latitude,
         longitude: req.body.longitude,
-        photo: req.body.photo
+        photo: req.body.photo,
+        motDePasse: req.body.motDePasse
     });
 
     try {
