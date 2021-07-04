@@ -2,7 +2,7 @@ const express = require('express');
 const Traitement = require('../models/Traitement');
 const router = express.Router();
 
-/// ALL DOCTORS
+/// ALL TRAITEMENTS
 router.get('/', async(req, res) => {
     try {
         const traitements = await Traitement.find();
@@ -12,7 +12,7 @@ router.get('/', async(req, res) => {
     }
 });
 
-/// DOCTOR BY ID
+/// TRAITEMENT BY ID
 router.get('/:id', async(req, res) => {
     try {
         const traitement = await Traitement.findOne({ id: req.params.id });
@@ -22,7 +22,7 @@ router.get('/:id', async(req, res) => {
     }
 });
 
-/// INSERT DOCTOR
+/// INSERT TRAITEMENT
 router.post('/', async(req, res) => {
     const traitement = new Traitement({
         id: req.body.id,
