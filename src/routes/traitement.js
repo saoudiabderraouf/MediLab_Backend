@@ -22,11 +22,21 @@ router.get('/:id', async(req, res) => {
     }
 });
 
+/// TRAITEMENT BY PATIENT
+router.get('/patient/:id', async(req, res) => {
+    try {
+        const traitements = await Traitement.find({ idPatient: req.params.id });
+        res.status(200).json(traitements);
+    } catch (err) {
+        res.status(404).json({ message: err });
+    }
+});
+
 /// INSERT TRAITEMENT
 router.post('/', async(req, res) => {
     const traitement = new Traitement({
         id: req.body.id,
-        duree: req.body.duree,
+        etat: req.body.etat,
         idMedecin: req.body.idMedecin,
         idPatient: req.body.idPatient,
         medicaments: req.body.medicaments

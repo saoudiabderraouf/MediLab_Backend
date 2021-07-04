@@ -4,7 +4,7 @@ const TraitementSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    duree: {
+    etat: {
         type: String,
         required: true
     },
