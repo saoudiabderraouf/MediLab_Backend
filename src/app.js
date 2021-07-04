@@ -7,6 +7,7 @@ require('dotenv/config');
 
 //IMPORT ROUTES
 const medecinRoute = require('./routes/medecin');
+const patientRoute = require('./routes/patient');
 const traitementRoute = require('./routes/traitement');
 const rendezVousRoute = require('./routes/rendezVous');
 
@@ -15,6 +16,7 @@ const rendezVousRoute = require('./routes/rendezVous');
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/medecin', medecinRoute);
+app.use('/patient', patientRoute);
 app.use('/traitement', traitementRoute);
 app.use('/rendezVous', rendezVousRoute);
 
