@@ -4,12 +4,8 @@ const TraitementSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    dateDebut: {
-        type: Date,
-        required: true
-    },
-    dateFin: {
-        type: Date,
+    duree: {
+        type: String,
         required: true
     },
     idMedecin: {
@@ -24,6 +20,8 @@ const TraitementSchema = mongoose.Schema({
         type: [{
             nom: String,
             description: String,
+            dateDebut: Date,
+            dateFin: Date,
             nbParJour: Number,
             interditPour: String
         }],

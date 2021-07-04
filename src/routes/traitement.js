@@ -26,8 +26,7 @@ router.get('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     const traitement = new Traitement({
         id: req.body.id,
-        dateDebut: req.body.dateDebut,
-        dateFin: req.body.dateFin,
+        duree: req.body.duree,
         idMedecin: req.body.idMedecin,
         idPatient: req.body.idPatient,
         medicaments: req.body.medicaments
