@@ -28,4 +28,4 @@ mongoose.connect('mongodb+srv://foufa:foufa123123@foufatest.jwo76.mongodb.net/fo
 });
 
 //LISTENING TO THE SERVER
-app.listen(8000);
+app.listen(process.env.PORT||8000);
