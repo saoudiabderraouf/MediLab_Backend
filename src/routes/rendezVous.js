@@ -1,5 +1,7 @@
 const express = require('express');
 const RendezVous = require('../models/RendezVous');
+const Patient = require('../models/Patient');
+const Traitement = require('../models/Traitement');
 const router = express.Router();
 
 /// ALL RDVs
@@ -13,7 +15,7 @@ router.get('/', async(req, res) => {
 });
 /// RDV BY Patient ID
 router.get('/byPatient', async(req, res) => {
-    const idPatient= String(req.query.idPatient)
+    const idPatient = String(req.query.idPatient)
     try {
         const rendezVous = await RendezVous.find({ idPatient: idPatient });
         res.status(200).json(rendezVous);
@@ -25,10 +27,30 @@ router.get('/byPatient', async(req, res) => {
 
 /// RDV BY Medecin ID
 router.get('/byMedecin', async(req, res) => {
-    const idMedecin= String(req.query.idMedecin)
+    const idMedecin = String(req.query.idMedecin)
     try {
         const rendezVous = await RendezVous.find({ idMedecin: idMedecin });
         res.status(200).json(rendezVous);
+    } catch (err) {
+        res.status(404).json({ message: err });
+    }
+});
+
+/// RDV BY Medecin ID
+router.get('/allByMedecin', async(req, res) => {
+    const idMedecin = String(req.query.idMedecin)
+    try {
+        const rendezVous = await RendezVous.find({ idMedecin: idMedecin });
+        const ids = [];
+        rendezVous.forEach(r => {
+            ids.push(r.idPatient);
+        });
+
+        const patients = await Patient.find({ id: { $in: ids } });
+
+        const traitements = await Traitement.find({ idPatient: { $in: ids } });
+
+        res.status(200).json([rendezVous, patients, traitements]);
     } catch (err) {
         res.status(404).json({ message: err });
     }
