@@ -40,4 +40,15 @@ router.post('/', async(req, res) => {
     }
 });
 
+/// LOGIN PATIENT
+router.post('/login', async(req, res) => {
+    const query = { $and: [{ telephone: req.body.telephone }, { motDePasse: req.body.motDePasse }] }
+    try {
+        const patient = await Patient.findOne(query);
+        res.status(200).json(patient.id);
+    } catch (err) {
+        res.status(404).json({ message: err });
+    }
+});
+
 module.exports = router;
