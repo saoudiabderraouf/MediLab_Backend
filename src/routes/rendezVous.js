@@ -13,9 +13,10 @@ router.get('/', async(req, res) => {
 });
 
 /// RDV BY ID
-router.get('/:id', async(req, res) => {
+router.get('/byMedecin', async(req, res) => {
+    const idMedecin= String(req.query.idMedecin)
     try {
-        const rendezVous = await RendezVous.find({ idMedecin: req.params.id });
+        const rendezVous = await RendezVous.find({ idMedecin: idMedecin });
         res.status(200).json(rendezVous);
     } catch (err) {
         res.status(404).json({ message: err });
