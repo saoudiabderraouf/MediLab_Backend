@@ -50,7 +50,7 @@ router.get('/allByMedecin', async(req, res) => {
 
         const traitements = await Traitement.find({ idPatient: { $in: ids } });
 
-        res.status(200).json([rendezVous, patients, traitements]);
+        res.status(200).json({ rendezVous, patients, traitements });
     } catch (err) {
         res.status(404).json({ message: err });
     }
