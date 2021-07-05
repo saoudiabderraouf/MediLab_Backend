@@ -12,11 +12,27 @@ const MedecinSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    telephone: {
+    age: {
         type: Number,
         required: true
     },
     specialite: {
+        type: String,
+        required: true
+    },
+    experience: {
+        type: Number,
+        required: true
+    },
+    telephone: {
+        type: Number,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    adresse: {
         type: String,
         required: true
     },
