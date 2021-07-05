@@ -28,4 +28,8 @@ mongoose.connect('mongodb+srv://foufa:foufa123123@foufatest.jwo76.mongodb.net/fo
 });
 
 //LISTENING TO THE SERVER
-app.listen(process.env.PORT||8000);
+var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
+app.listen(server_port, server_host, function() {
+    console.log('Listening on port %d', server_port);
+});
