@@ -11,8 +11,19 @@ router.get('/', async(req, res) => {
         res.status(404).json({ message: err });
     }
 });
+/// RDV BY Patient ID
+router.get('/byPatient', async(req, res) => {
+    const idPatient= String(req.query.idPatient)
+    try {
+        const rendezVous = await RendezVous.find({ idPatient: idPatient });
+        res.status(200).json(rendezVous);
+    } catch (err) {
+        res.status(404).json({ message: err });
+    }
+});
 
-/// RDV BY ID
+
+/// RDV BY Medecin ID
 router.get('/byMedecin', async(req, res) => {
     const idMedecin= String(req.query.idMedecin)
     try {
