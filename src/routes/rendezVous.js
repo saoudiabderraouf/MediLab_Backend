@@ -15,7 +15,7 @@ router.get('/', async(req, res) => {
 /// RDV BY ID
 router.get('/:id', async(req, res) => {
     try {
-        const rendezVous = await RendezVous.findOne({ id: req.params.id });
+        const rendezVous = await RendezVous.findOne({ idMedecin: req.params.id });
         res.status(200).json(rendezVous);
     } catch (err) {
         res.status(404).json({ message: err });
