@@ -18,7 +18,8 @@ const RendezVousSchema = mongoose.Schema({
     },
     idPatient: {
         type: Number,
-        required: true
+        default: 0
+       
     }
 });
 
