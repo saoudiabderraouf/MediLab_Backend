@@ -48,4 +48,15 @@ router.post('/', async(req, res) => {
     }
 });
 
+/// LOGIN DOCTOR
+router.post('/login', async(req, res) => {
+    const query = { $and: [{ telephone: req.body.telephone }, { motDePasse: req.body.motDePasse }] }
+    try {
+        const medecin = await Medecin.findOne(query);
+        res.status(200).json(medecin.id);
+    } catch (err) {
+        res.status(404).json({ message: err });
+    }
+});
+
 module.exports = router;
