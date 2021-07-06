@@ -50,4 +50,25 @@ router.post('/', async(req, res) => {
     }
 });
 
+/// INSERT CONSEILS
+router.post('/addConseils', function(req, res) {
+    var advices = req.body
+    try {
+        advices.forEach(advice => {
+            const conseil = new Conseil({
+                id: advice.id,
+                text: advice.text,
+                date: advice.date,
+                idMedecin: advice.idMedecin,
+                idPatient: advice.idPatient
+            });
+            conseil.save();
+        });
+        res.status(200).json('Advice inserted successfully');
+    } catch (err) {
+        res.status(404).json({ message: err });
+    }
+
+});
+
 module.exports = router;
